@@ -1,5 +1,5 @@
 {
-  description = "Flake for nix-search-by-maintainer";
+  description = "Flake for nsbm";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -27,7 +27,7 @@
       }: {
         packages = {
           default = pkgs.writeShellApplication {
-            name = "nix-search-by-maintainer";
+            name = "nsbm";
             runtimeInputs = [inputs'.sbomnix.packages.sbomnix pkgs.csvkit pkgs.gum];
             text = builtins.readFile ./script.sh;
           };
